@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jetbrains</groupId>
+    <artifactId>ij-2025.3-demos</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>ij-2025.3-demos</name>
+
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+
+    <modules>
+        <module>spring-data-jdbc-db-first</module>
+        <module>spring-data-jdbc-model-first</module>
+        <module>http-client-demo</module>
+    </modules>
+
+</project>
