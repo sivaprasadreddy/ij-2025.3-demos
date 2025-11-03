@@ -16,11 +16,10 @@
     </properties>
 
     <modules>
+        <module>books-server</module>
+        <module>books-client</module>
         <module>spring-data-jdbc-db-first</module>
         <module>spring-data-jdbc-model-first</module>
-        <module>spring-data-jdbc-single-query-loading</module>
-        <module>http-client-demo</module>
-        <module>api-versioning-demo</module>
     </modules>
 
 </project>
