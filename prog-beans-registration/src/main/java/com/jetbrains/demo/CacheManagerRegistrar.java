@@ -1,13 +1,12 @@
 package com.jetbrains.demo;
 
-
 import org.springframework.beans.factory.BeanRegistrar;
 import org.springframework.beans.factory.BeanRegistry;
 import org.springframework.core.env.Environment;
 
 public class CacheManagerRegistrar implements BeanRegistrar {
-    public static final String CACHE_IMPL_CLASS = "CACHE_IMPL_CLASS";
-    public static final String CAFFEINE_CACHE_CLASS = "com.github.benmanes.caffeine.cache.Cache";
+    private static final String CACHE_IMPL_CLASS = "CACHE_IMPL_CLASS";
+    private static final String CAFFEINE_CACHE_CLASS = "com.github.benmanes.caffeine.cache.Cache";
 
     @Override
     public void register(BeanRegistry registry, Environment env) {
