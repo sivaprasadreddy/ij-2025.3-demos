@@ -18,6 +18,7 @@
     <modules>
         <module>books-server</module>
         <module>books-client</module>
+        <module>prog-beans-registration</module>
         <module>spring-data-jdbc-db-first</module>
         <module>spring-data-jdbc-model-first</module>
     </modules>

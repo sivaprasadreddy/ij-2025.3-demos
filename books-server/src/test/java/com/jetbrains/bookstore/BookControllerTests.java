@@ -37,7 +37,7 @@ class BookControllerTests {
     @Test
     void shouldSearchBooksUsingV1() {
         MvcTestResult testResult = mvc.get().uri("/api/books/search?q=007")
-                .header("API-Version", "1.0")
+                .apiVersion("1.0")
                 .exchange();
 
         assertThat(testResult)
@@ -54,7 +54,7 @@ class BookControllerTests {
     @Test
     void shouldSearchBooksUsingV2() {
         MvcTestResult testResult = mvc.get().uri("/api/books/search?q=007")
-                .header("API-Version", "2.0")
+                .apiVersion("2.0")
                 .exchange();
 
         assertThat(testResult)
