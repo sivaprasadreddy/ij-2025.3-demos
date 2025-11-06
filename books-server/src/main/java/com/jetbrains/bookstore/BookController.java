@@ -17,7 +17,9 @@ class BookController {
 
     @GetMapping
     Books getAll() {
-        return Books.of(bookRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));
+        Sort sort = Sort.by(Sort.Direction.DESC, "id");
+        List<Book> books = bookRepository.findAll(sort);
+        return Books.of(books);
     }
 
     @GetMapping("/{isbn}")
@@ -29,12 +31,14 @@ class BookController {
 
     @GetMapping(value = "/search", version = "1.0")
     Books searchBooks(@RequestParam("q") String query) {
-        return Books.of(bookRepository.findByTitleContainingIgnoreCase(query));
+        List<Book> books = bookRepository.findByTitleContainingIgnoreCase(query);
+        return Books.of(books);
     }
 
     @GetMapping(value = "/search", version = "2.0")
     Books searchBooks_V2(@RequestParam("q") String query) {
-        return Books.of(bookRepository.searchBooks(query));
+        List<Book> books = bookRepository.searchBooks(query);
+        return Books.of(books);
     }
 
     record Books(List<Book> books){
