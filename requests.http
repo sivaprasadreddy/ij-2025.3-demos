@@ -1,3 +1,9 @@
+GET http://localhost:8080/api/books
+
+###
+GET http://localhost:8080/api/books/978-0-14-028008-4
+
+###
 GET http://localhost:8080/api/books/search?q=007
 
 ###
