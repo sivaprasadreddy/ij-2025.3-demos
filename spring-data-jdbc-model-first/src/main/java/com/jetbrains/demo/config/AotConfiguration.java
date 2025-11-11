@@ -1,4 +1,4 @@
-package com.jetbrains.demo;
+package com.jetbrains.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

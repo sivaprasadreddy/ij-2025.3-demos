@@ -1,4 +1,4 @@
-package com.jetbrains.demo;
+package com.jetbrains.demo.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;

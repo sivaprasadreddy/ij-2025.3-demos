@@ -3,10 +3,14 @@ package com.jetbrains.bookstore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.MockMvcBuilderCustomizer;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
 import org.springframework.test.web.servlet.assertj.MvcTestResult;
+import org.springframework.test.web.servlet.setup.ConfigurableMockMvcBuilder;
+import org.springframework.web.client.ApiVersionInserter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
@@ -67,5 +71,13 @@ class BookControllerTests {
                             .extracting("isbn")
                             .containsExactlyInAnyOrder("978-0-14-028008-4", "978-0-14-028007-3");
                 });
+    }
+
+    @TestConfiguration
+    static class BookControllerTestsConfig implements MockMvcBuilderCustomizer {
+        @Override
+        public void customize(ConfigurableMockMvcBuilder<?> builder) {
+            builder.apiVersionInserter(ApiVersionInserter.useHeader("API-Version"));
+        }
     }
 }

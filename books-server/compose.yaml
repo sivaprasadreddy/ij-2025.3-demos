@@ -6,7 +6,7 @@ services:
       - 'POSTGRES_PASSWORD=postgres'
       - 'POSTGRES_USER=postgres'
     ports:
-      - '5432:5432'
+      - '5432'
 
   books-server:
     image: 'sivaprasadreddy/books-server'
@@ -21,3 +21,5 @@ services:
       - '5005:5005'
     depends_on:
       - postgres
+    profiles:
+      - app

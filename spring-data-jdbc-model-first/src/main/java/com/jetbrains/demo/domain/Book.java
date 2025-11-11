@@ -1,27 +1,24 @@
-package com.jetbrains.demo;
+package com.jetbrains.demo.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.jdbc.core.mapping.AggregateReference;
-import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
 
-@Table(name = "reviews")
-public class Review {
+@Table(name = "books")
+public class Book {
     @Id
     private Long id;
 
-    @Column("book_id")
-    private AggregateReference<Book, Long> book;
+    private String isbn;
 
-    @Column("user_id")
-    private AggregateReference<User, Long> user;
+    private String title;
 
-    private Integer rating;
+    private String author;
 
-    private String review;
+    private AggregateReference<User, Long> createdBy;
 
     private Instant createdAt;
 
@@ -38,36 +35,36 @@ public class Review {
         this.id = id;
     }
 
-    public AggregateReference<Book, Long> getBook() {
-        return book;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setBook(AggregateReference<Book, Long> book) {
-        this.book = book;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public AggregateReference<User, Long> getUser() {
-        return user;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUser(AggregateReference<User, Long> user) {
-        this.user = user;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Integer getRating() {
-        return rating;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setRating(Integer rating) {
-        this.rating = rating;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getReview() {
-        return review;
+    public AggregateReference<User, Long> getCreatedBy() {
+        return createdBy;
     }
 
-    public void setReview(String review) {
-        this.review = review;
+    public void setCreatedBy(AggregateReference<User, Long> createdBy) {
+        this.createdBy = createdBy;
     }
 
     public Instant getCreatedAt() {
