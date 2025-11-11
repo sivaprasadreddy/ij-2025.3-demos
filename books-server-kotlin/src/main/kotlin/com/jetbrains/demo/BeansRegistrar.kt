@@ -4,6 +4,7 @@ import com.jetbrains.demo.domain.Book
 import com.jetbrains.demo.domain.BookRepository
 import org.springframework.beans.factory.BeanRegistrarDsl
 import org.springframework.http.MediaType.APPLICATION_JSON
+import org.springframework.web.servlet.function.RequestPredicates.version
 import org.springframework.web.servlet.function.bodyWithType
 import org.springframework.web.servlet.function.router
 
@@ -23,7 +24,14 @@ fun mainRouter(
         }
     }
 
-    GET("/api/books/search") {
+    GET("/api/books/search", version("1.0")) {
+        val query : String = it.params()["q"]?.firstOrNull() ?: ""
+        bookRepository.findByTitleContainingIgnoreCase(query).let { books ->
+            ok().contentType(APPLICATION_JSON).bodyWithType(Books(books))
+        }
+    }
+
+    GET("/api/books/search", version("2.0")) {
         val query : String = it.params()["q"]?.firstOrNull() ?: ""
         bookRepository.searchBooks(query).let { books ->
             ok().contentType(APPLICATION_JSON).bodyWithType(Books(books))
