@@ -13,10 +13,9 @@ public class ProgrammaticBeansRegistrationApplication {
     }
 
     @Bean
-    ApplicationRunner runner(CacheManager cacheManager) {
+    ApplicationRunner runner() {
         return args -> {
-            cacheManager.put("foo", "bar");
-            System.out.println(cacheManager.get("foo"));
+
         };
     }
 }

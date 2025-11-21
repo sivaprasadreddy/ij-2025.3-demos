@@ -8,7 +8,6 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import org.springframework.web.service.registry.ImportHttpServices;
 
 @Configuration
-//@ImportHttpServices(value = BooksClient.class)
 class ClientConfig {
 
     @Bean

@@ -58,7 +58,8 @@ class BookControllerTests {
     @Test
     void shouldSearchBooksUsingV2() {
         MvcTestResult testResult = mvc.get().uri("/api/books/search?q=007")
-                .apiVersion("2.0")
+                .header("API-Version", "2.0")
+                //.apiVersion("2.0")
                 .exchange();
 
         assertThat(testResult)
